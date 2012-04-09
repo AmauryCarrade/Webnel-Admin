@@ -141,6 +141,7 @@ $(document).ready(function() {
 		$messagesList                    = $('#messagesList'),
 		$messagesListItem                = $('#messagesList ul li a'),
 		$messagesThread                  = $('#messagesThread'),
+		$messagesNothing                 = $('#messagesNothing'),
 		$messagesObject                  = $('#messageObject'),
 		$divSourceThread                 = null,
 		$divThreadLoading                = $('#messagesSourceThreadLoading'),
@@ -166,6 +167,8 @@ $(document).ready(function() {
 		messageLocationId                = 0,
 		messageLocationName              = null,
 		messageType                      = null,
+
+		messagesVisibles                 = $messagesListItem.length,
 		
 		messagesAnswersContents          = {};
 		
@@ -258,7 +261,9 @@ $(document).ready(function() {
 		$messagesBtnToolbarModifications.hide();
 		$messagesBtnCancelModification.hide();
 
-		$messagesBtnModify.show();
+		if(messagesVisibles != 0) {
+			$messagesBtnModify.show();
+		}
 		$messagesBtnNew.show();
 		$messagesBtnClose.show();
 
@@ -277,13 +282,23 @@ $(document).ready(function() {
 
 	var $item;
 	$messagesBtnDelete.click(function() {
+		if($messagesModifyCheckboxes.length == 0) {
+			return;
+		}
+
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
-				$item = $(this).parent().parent();
+				$item = $(this).parent().parent().parent();
 
 				if($item.hasClass('unread')) {
 					changeMessagesCount(-1);
 					$item.removeClass('unread');
+				}
+
+				messagesVisibles--;
+
+				if($item.hasClass('last')) {
+					$item.siblings().filter(':last').addClass('last');
 				}
 
 				var id = $item.data('id');
@@ -291,6 +306,10 @@ $(document).ready(function() {
 				$item.slideUp('normal', function() {
 					$item.empty().remove();
 				});
+
+				if(messagesVisibles == 0) {
+					$messagesNothing.slideDown();
+				}
 
 				$('#messageSourceThread' + id).remove();
 				// Remove on server for current user.
@@ -300,9 +319,13 @@ $(document).ready(function() {
 	});
 
 	$messagesBtnRead.click(function() {
+		if($messagesModifyCheckboxes.length == 0) {
+			return;
+		}
+
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
-				$item = $(this).parent().parent();
+				$item = $(this).parent().parent().parent();
 
 				if($item.hasClass('unread')) {
 					changeMessagesCount(-1);
@@ -319,9 +342,13 @@ $(document).ready(function() {
 	});
 
 	$messagesBtnUnread.click(function() {
+		if($messagesModifyCheckboxes.length == 0) {
+			return;
+		}
+		
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
-				$item = $(this).parent().parent();
+				$item = $(this).parent().parent().parent();
 
 				if(!$item.hasClass('unread')) {
 					changeMessagesCount(1);
@@ -338,9 +365,13 @@ $(document).ready(function() {
 	});
 
 	$messagesBtnInverse.click(function() {
+		if($messagesModifyCheckboxes.length == 0) {
+			return;
+		}
+		
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
-				$item = $(this).parent().parent();
+				$item = $(this).parent().parent().parent();
 
 				if($item.hasClass('unread')) {
 					changeMessagesCount(-1);

@@ -44,9 +44,15 @@
 	margin-left: 0 !important;
 	padding-top: 7px;
 }
+#messages #messagesList ul li:hover h4, #messages #messagesList ul li:hover .date {
+	color: #005580 !important;
+}
 #messages #messagesList h3 {
 	display: inline;
 	font-weight: normal;
+}
+#messages #messagesList h4 {
+	color: #08C !important;
 }
 #messages #messagesList .read {
 	display: none;
@@ -60,6 +66,7 @@
 
 #messages #messagesList .date {
 	font-size: small;
+	color: #08C;
 	
 	display: block;
 	float: right;
@@ -92,6 +99,18 @@
 	text-align: left;
 }
 #messages #messagesBtnCancelModification {
+	display: none;
+}
+
+#messages #messagesNothing {
+	height: 72px;
+	text-align: center;
+	padding-top: 53px;
+	font-size: large;
+	color: #888;
+}
+#messages .modal-body.hidden {
+	visibility: visible;
 	display: none;
 }
 

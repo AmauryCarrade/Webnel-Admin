@@ -344,7 +344,7 @@
 				<!--<p style="text-align: center">Aucun message reçu... pour le moment !</p>-->
 				<ul class="nav nav-list">
 					
-					<li class="unread"><a href="#" data-id="12" data-type="global">
+					<li class="unread"><a href="#" data-id="12" data-type="global"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -352,8 +352,8 @@
 						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du premier message</h4>
 						<p class="name">Avec tout le monde</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
-					<li class="unread"><a href="#" data-id="13" data-type="private">
+					</label></a></li>
+					<li class="unread"><a href="#" data-id="13" data-type="private"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -361,8 +361,8 @@
 						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du seul message</h4>
 						<p class="name">Avec Amnet</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
-					<li class="unread"><a href="#" data-id="14" data-type="group">
+					</label></a></li>
+					<li class="unread"><a href="#" data-id="14" data-type="group"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -370,8 +370,8 @@
 						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du premier message</h4>
 						<p class="name">Avec Lui, Elle et Amnet</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
-					<li><a href="#" data-id="15" data-type="global">
+					</label></a></li>
+					<li><a href="#" data-id="15" data-type="global"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -379,8 +379,8 @@
 						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du second message</h4>
 						<p class="name">Avec tout le monde</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
-					<li><a href="#" data-id="16" data-type="group">
+					</label></a></li>
+					<li><a href="#" data-id="16" data-type="group"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -388,8 +388,8 @@
 						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du deuxième message</h4>
 						<p class="name">Avec Lui, Elle et Amnet</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
-					<li class="last"><a href="#" data-id="17" data-type="group">
+					</label></a></li>
+					<li class="last"><a href="#" data-id="17" data-type="group"><label>
 						<div class="messagesList-checkbox">
 							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
 						</div>
@@ -397,11 +397,13 @@
 						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du troisième message</h4>
 						<p class="name">Avec Lui, Elle et Amnet</p>
 						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
-					</a></li>
+					</label></a></li>
 				</ul>
 			</div>
 			
 			<div class="modal-body" id="messagesThread"></div>
+
+			<div class="modal-body hidden" id="messagesNothing">Aucun message</div>
 			
 			<div class="modal-footer" id="messagesForm">
 				<textarea placeholder="Message" id="MessagesFormFieldText"></textarea>
