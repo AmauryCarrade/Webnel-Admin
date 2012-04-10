@@ -162,16 +162,17 @@ $(document).ready(function() {
 		$messagesBtnClose                = $('#messagesBtnClose'),
 		$messagesBtnNew                  = $('#messagesBtnNew'),
 		messagesSelectedCheckboxes       = 0,
-		
+
 		messageLocation                  = 'list',
 		messageLocationId                = 0,
 		messageLocationName              = null,
 		messageType                      = null,
 
 		messagesVisibles                 = $messagesListItem.length,
-		
+
 		messagesAnswersContents          = {};
-		
+
+
 	// Functions
 	var updateThread = function(id) {
 		var $threadSource = null;
@@ -289,6 +290,12 @@ $(document).ready(function() {
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
 				$item = $(this).parent().parent().parent();
+				var id = $item.find('a').data('id');
+
+				if(id == undefined) return; 
+				// In some case, the browser (tested with Chrome) add an unexisting message to the jQuery object.
+				// The message isn't real if the id isn't gettable, so if his value is undefined.
+				// Yes, this is a bancal fix. But I looking for a better solution to fix this issue.
 
 				if($item.hasClass('unread')) {
 					changeMessagesCount(-1);
@@ -301,15 +308,25 @@ $(document).ready(function() {
 					$item.siblings().filter(':last').addClass('last');
 				}
 
-				var id = $item.data('id');
-
 				$item.slideUp('normal', function() {
 					$item.empty().remove();
+
+					// Because we remove some messages from the DOM, we need to update this.
+					$messagesListItem = $('#messagesList ul li a');
 				});
 
 				if(messagesVisibles == 0) {
 					$messagesNothing.slideDown();
+					
+					$messagesBtnToolbarModifications.find('.btn').addClass('disabled');
+					// If all messages are deleted, what do you want to do?
 				}
+
+				$(this).find('input').attr('checked', false);
+				// For a mysterious reason (I looking for a fix), $messagesListItem isn't quite updated.
+				// So when we mark some messages as unread, or whan we inverse the read-state, these messages
+				// are included to the selection. So we uncheck these; by the way, these will be exclude from 
+				// this selection.
 
 				$('#messageSourceThread' + id).remove();
 				// Remove on server for current user.
@@ -372,6 +389,16 @@ $(document).ready(function() {
 		$messagesModifyCheckboxes.each(function() {
 			if($(this).find('input').is(':checked')) {
 				$item = $(this).parent().parent().parent();
+				var id = $item.find('a').data('id');
+
+				if(id == undefined) return; 
+				// Same as above.
+				// In some case, the browser (tested with Chrome) add an unexisting message to the jQuery object.
+				// The message isn't real if the id isn't gettable, so if his value is undefined.
+				// Yes, this is a bancal fix. But I looking for a better solution to fix this issue.
+
+				// alert('Messages visibles : ' + messagesVisibles + "\nMessages non lus : " + messagesCount + "\nLongeur de $messagesListItem : " + $messagesListItem.length + "\nId : " + id + "\nTitre : " + $item.find('h4').text() + "\nChecked : " + $(this).find('input').is(':checked'));
+				
 
 				if($item.hasClass('unread')) {
 					changeMessagesCount(-1);
@@ -379,7 +406,6 @@ $(document).ready(function() {
 
 					$item.find('h4 span').hide();
 
-					var id = $item.data('id');
 					// Save read-state.
 				}
 				else {
@@ -388,7 +414,6 @@ $(document).ready(function() {
 
 					$item.find('h4 span').css('display', 'inline-block'); // .show() sets the display property to "inline"; we need "inline-block".
 
-					var id = $item.data('id');
 					// Save unread-state.
 				}
 			}
@@ -719,11 +744,6 @@ $(document).ready(function() {
 
 
 /* 
- * TO DO 
- * Gérer le cas où il y a beaucoup de notifications (actuellement, le popup dépasse de l'écran).
- * Dans les messages, ajouter un bouton « Modifier » qui permette de supprimer ou marquer comme 
- * lu/non lu les messages sélectionnés. [CHECK]
+ * TO DO
  * Corriger le bug d'activation/désactivation des boutons de modification. (Non reprodui pour le moment)
- * Ajouter un message « Aucun message » en cas de besoin.
- * Masquer le bouton de modification en cas d'absence de messages.
  */
