@@ -17,6 +17,19 @@ $(document).ready(function() {
 	$('.alert-close').click(function() {
 		$(this).parent().parent().alert('close');
 	});
+
+	/** Various **/
+	var objectLength = function(object, neededValue) {
+		var counter = 0;
+ 
+		for (var i in object) {
+		    if (object.hasOwnProperty(i) && (neededValue === undefined || object[i] === neededValue)) {
+			    counter++;
+		    }
+		}
+
+		return counter;
+	};
 	
 	/** Traductions (externalisé par la suite) **/
 	var t = {
@@ -143,6 +156,8 @@ $(document).ready(function() {
 		$messagesThread                  = $('#messagesThread'),
 		$messagesNothing                 = $('#messagesNothing'),
 		$messagesNew                     = $('#messagesNew'),
+		$messagesNewInputTo              = $('.messages-new-input-to'),
+		$messagesNewInputsTo             = $('.messages-new-inputs-to'),
 		$messagesObject                  = $('#messageObject'),
 		$divSourceThread                 = null,
 		$divThreadLoading                = $('#messagesSourceThreadLoading'),
@@ -512,8 +527,9 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('.messages-back-to-list').click(function() {
+	$messagesBackButton.click(function() {
 		$messagesThread.hide();
+		$messagesNew.hide();
 		$messages.find('h3 small').html('');
 		$messagesObject.hide();
 		$messagesBackButton.hide();
@@ -634,15 +650,114 @@ $(document).ready(function() {
 		if(messageLocation != 'new') {
 			$messagesList.hide();
 			$messagesThread.hide();
+			$messagesBtnModify.hide();
+			$messagesBackButton.show();
 
 			$messagesNew.show();
-			$messagesFormTextarea.attr('placeholder', t.messages.globalMessage);
+			$messagesFormTextarea.attr('placeholder', t.messages.globalMessage).focus();
 			$messagesForm.show();
 			$messages.find('h3 small').html(' » ' + t.messages.newMessage);
 
 			messageLocation = 'new';
 		}
 
+	});
+
+	var removeNextBackspace     = false,
+		usedFields              = {},
+		currentFieldInternalId  = 1,
+		newId                   = null,
+		numberOfRecipients      = 0;
+
+	$messagesNewInputTo.live('focus', function() {
+		currentFieldInternalId = $(this).data('id');
+	});
+	$messagesNewInputTo.live('keyup', function(h) {
+		currentFieldInternalId = $(this).data('id');
+
+		// Externed because we need to execute this two times: one before and one after the deletion/add of a field.
+		var executedOnChangeWithNonEmptyField = function() {
+			usedFields[currentFieldInternalId] = true;
+			numberOfRecipients = objectLength(usedFields, true);
+			
+			//console.log('*Full*\nNumber of recipients: ' + numberOfRecipients + '\nCurrent field internal id: ' + currentFieldInternalId);
+			//console.log(usedFields);
+
+			if(numberOfRecipients > 1) {
+				$messagesFormTextarea.attr('placeholder', t.messages.groupeMessage);
+			}
+			else {
+				$messagesFormTextarea.attr('placeholder', t.messages.privateMessage);
+			}
+		}
+
+		if($(this).val() != '') {
+			executedOnChangeWithNonEmptyField();
+		}
+
+		if(h.keyCode == 13) { // 13 = "Enter"
+			if($(this).next().is(':last-child')) { // .next() because there is a <br /> after.
+				newId = $(this).data('id') + 1;
+				$(this).clone().appendTo($messagesNewInputsTo)          // We add a new field for a new contact
+			           .val('')                                         // Else, the default value of the field is the
+			           													// value of the previous field.
+			           .data('id', newId);
+
+			    $messagesNewInputsTo.append('<br />');
+
+			    $messagesNewInputTo = $('.messages-new-input-to');      // We need to refresh the jQuery object 
+																	    // because the DOM has changed.
+				usedFields[newId] = false;
+				currentFieldInternalId = newId;
+			}
+			$(this).next().next().focus();                              // We focus the new field
+																		// Why two .next()? Don't forget the <br />... ;)
+		}
+		else if(h.keyCode == 8) { // 8 = backspace
+			console.log('Backspace');
+			if($(this).val() == '' && $messagesNewInputTo.length > 1) {
+				// We need to remove the field on the second "backspace" on an empty field.
+				// The first empty the field, and the second is tiped on a nempty field.
+				// But if the field hasn't been used, we remove it immediately.
+				if(removeNextBackspace || !usedFields[currentFieldInternalId]) {    
+					// If the user tip "backspace" on an empty field, we remove it and we focus the previous field.
+					$(this).next().remove(); // Removes the <br />
+					$(this).remove();
+					$messagesNewInputTo = $('.messages-new-input-to');
+					$messagesNewInputTo.last().focus();
+
+					removeNextBackspace = false;
+				}
+				else {
+					removeNextBackspace = true;
+				}
+			}
+			
+			if(removeNextBackspace) { // In all cases, including the last field.
+				usedFields[currentFieldInternalId] = false;
+				console.log('Removed for last field');
+			}
+		}
+		
+		if($(this).val() != '') {
+			executedOnChangeWithNonEmptyField();
+		}
+		if($(this).val() == '') {
+			usedFields[currentFieldInternalId] = false;
+			numberOfRecipients = objectLength(usedFields, true);
+
+			//console.log('*Empty*\nNumber of recipients: ' + numberOfRecipients + '\nCurrent field internal id: ' + currentFieldInternalId);
+
+			if(numberOfRecipients >= 2) {
+				$messagesFormTextarea.attr('placeholder', t.messages.groupeMessage);
+			}
+			else if(numberOfRecipients == 1) {
+				$messagesFormTextarea.attr('placeholder', t.messages.privateMessage);
+			}
+			else {
+				$messagesFormTextarea.attr('placeholder', t.messages.globalMessage);
+			}
+		}
 	});
 	
 	// Updating thread
@@ -763,4 +878,5 @@ $(document).ready(function() {
 /* 
  * TO DO
  * Corriger le bug d'activation/désactivation des boutons de modification. (Non reprodui pour le moment)
+ * BUG : Messages > Modifier > Annuler > Premier message : le compteur passe de 3 à 1 directement.
  */

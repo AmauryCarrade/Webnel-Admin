@@ -193,50 +193,20 @@
 	resize: none;
 }
 
+
 #messages #messagesNew {
 	display: none;
 }
-
 #messages #messagesNew .messages-new-inputs-to {
 	text-align: center;
 	margin-right: 20px;
 }
 #messages #messagesNew .messages-new-input-to {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-radius: 0;
-
 	width: 100%;
 	height: 1.5em;
 	text-align: left;
+}
 
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-
-	border-top: none;
-}
-#messages #messagesNew .messages-new-input-to:focus {
-	-webkit-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
-	-moz-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
-	box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
-	border-color: rgba(82, 168, 236, 0.8);
-	z-index: 100000000000;
-}
-#messages #messagesNew .messages-new-input-to:first-child {
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-	border: 1px solid #cccccc;
-}
-#messages #messagesNew .messages-new-input-to:first-child:focus {
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-	border-color: rgba(82, 168, 236, 0.8);
-}
-#messages #messagesNew .messages-new-input-to:last-child {
-	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px;
-}
 
 /** Notifications **/
 #notifications,#notifications .read,#notificationsUnreadSystemCount {
