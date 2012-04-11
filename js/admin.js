@@ -142,6 +142,7 @@ $(document).ready(function() {
 		$messagesListItem                = $('#messagesList ul li a'),
 		$messagesThread                  = $('#messagesThread'),
 		$messagesNothing                 = $('#messagesNothing'),
+		$messagesNew                     = $('#messagesNew'),
 		$messagesObject                  = $('#messageObject'),
 		$divSourceThread                 = null,
 		$divThreadLoading                = $('#messagesSourceThreadLoading'),
@@ -626,6 +627,22 @@ $(document).ready(function() {
 			}
 		}
 		return false;
+	});
+
+	// New message
+	$messagesBtnNew.click(function() {
+		if(messageLocation != 'new') {
+			$messagesList.hide();
+			$messagesThread.hide();
+
+			$messagesNew.show();
+			$messagesFormTextarea.attr('placeholder', t.messages.globalMessage);
+			$messagesForm.show();
+			$messages.find('h3 small').html(' » ' + t.messages.newMessage);
+
+			messageLocation = 'new';
+		}
+
 	});
 	
 	// Updating thread

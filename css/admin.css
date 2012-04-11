@@ -1,16 +1,19 @@
 .container-fluid {
-    padding-top: 15px; /* 60px to make the container go all the way to the bottom of the topbar */
+	padding-top: 15px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
-.favorite-edit, #favorite-new { 
+.favorite-edit,#favorite-new {
 	display: none;
 }
+
 .favorite-edit span {
 	cursor: pointer;
 }
+
 .favorite-edit .favorites-drag {
 	cursor: s-resize !important;
 }
+
 .favorites-move-icon {
 	cursor: n-resize;
 }
@@ -20,16 +23,15 @@
 }
 
 /** Messages **/
-
-#messages, #messagesThread, #messagesSourceThreadLoading, #messagesForm, 
-#messagesBtnBackToList, .messages-thread-source, #messageObject, #messagesUnreadSystemCount {
+#messages,#messagesThread,#messagesSourceThreadLoading,#messagesForm,#messagesBtnBackToList,.messages-thread-source,#messageObject,#messagesUnreadSystemCount {
 	display: none;
 }
 
-#messages #messagesList ul{
+#messages #messagesList ul {
 	padding-left: 0;
 	padding-right: 0;
 }
+
 #messages #messagesList ul li {
 	border-bottom: 1px solid #E8E8E8;
 	padding-left: 15px;
@@ -37,23 +39,29 @@
 	padding-top: 0;
 	margin: 0;
 }
+
 #messages #messagesList ul li.last {
 	border-bottom: none;
 }
+
 #messages #messagesList ul li.nav-header {
 	margin-left: 0 !important;
 	padding-top: 7px;
 }
-#messages #messagesList ul li:hover h4, #messages #messagesList ul li:hover .date {
+
+#messages #messagesList ul li:hover h4,#messages #messagesList ul li:hover .date {
 	color: #005580 !important;
 }
+
 #messages #messagesList h3 {
 	display: inline;
 	font-weight: normal;
 }
+
 #messages #messagesList h4 {
 	color: #08C !important;
 }
+
 #messages #messagesList .read {
 	display: none;
 }
@@ -67,14 +75,15 @@
 #messages #messagesList .date {
 	font-size: small;
 	color: #08C;
-	
 	display: block;
 	float: right;
 }
+
 #messages #messagesList .preview {
 	font-size: small;
 	color: darkgrey;
 }
+
 #messages #messagesList .id {
 	display: none;
 }
@@ -82,22 +91,20 @@
 #messages .messagesList-checkbox {
 	height: 45px;
 	width: 0px;
-
 	float: left;
-
 	padding-top: 30px;
-
 	position: relative;
 	right: 30px;
-
 	displayy: none;
 }
+
 #messages #messagesBtnToolbar {
 	margin-top: 0;
 	margin-bottom: 0;
 	display: none;
 	text-align: left;
 }
+
 #messages #messagesBtnCancelModification {
 	display: none;
 }
@@ -109,50 +116,57 @@
 	font-size: large;
 	color: #888;
 }
+
 #messages .modal-body.hidden {
 	visibility: visible;
 	display: none;
 }
 
-
 #messagesThread {
 	height: 280px;
 	padding: 15px;
+
+	-ms-overflow-x: hidden;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
-#messages #messagesThread .bulletRight, #messages #messagesThread .bulletLeft {
+
+#messages #messagesThread .bulletRight,#messages #messagesThread .bulletLeft {
 	margin-top: 15px;
 	margin-bottom: 15px;
-	
 	word-wrap: break-word;
 }
+
 #messages #messagesThread .bulletRight {
 	text-align: right;
 	margin-right: 15px;
 }
+
 #messages #messagesThread .bulletLeft {
 	margin-left: 15px;
 }
 
 #messages #messagesThread .contentBullet {
 	border: solid 1px;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
 	border-radius: 4px;
-	
 	width: 80%;
-	
 	padding: 5px;
 }
+
 #messages #messagesThread .bulletLeft .contentBullet {
 	border-color: #D1D1D1;
 	background-color: #FCFCFC;
 }
+
 #messages #messagesThread .bulletRight .contentBullet {
 	border-color: #0088CC;
 	background-color: #d6e3f7;
 	text-align: left;
 	float: right;
 }
+
 #messages #messagesThread .infosBullet {
 	font-size: small;
 	color: grey;
@@ -161,6 +175,7 @@
 #messagesUpdateThread {
 	cursor: pointer;
 }
+
 #messagesUpdateThreadLoader {
 	display: none;
 }
@@ -168,46 +183,101 @@
 #MessagesForm {
 	padding-right: 15px;
 }
+
 #MessagesFormFieldText {
 	width: 80%;
 	height: 1.5em;
 	margin-right: 0;
+	-webkit-resize: none;
+	-moz-resize: none;
 	resize: none;
 }
 
-/** Notifications **/
-#notifications, #notifications .read, #notificationsUnreadSystemCount {
+#messages #messagesNew {
 	display: none;
 }
+
+#messages #messagesNew .messages-new-inputs-to {
+	text-align: center;
+	margin-right: 20px;
+}
+#messages #messagesNew .messages-new-input-to {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-radius: 0;
+
+	width: 100%;
+	height: 1.5em;
+	text-align: left;
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+
+	border-top: none;
+}
+#messages #messagesNew .messages-new-input-to:focus {
+	-webkit-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
+	box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
+	border-color: rgba(82, 168, 236, 0.8);
+	z-index: 100000000000;
+}
+#messages #messagesNew .messages-new-input-to:first-child {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border: 1px solid #cccccc;
+}
+#messages #messagesNew .messages-new-input-to:first-child:focus {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-color: rgba(82, 168, 236, 0.8);
+}
+#messages #messagesNew .messages-new-input-to:last-child {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+/** Notifications **/
+#notifications,#notifications .read,#notificationsUnreadSystemCount {
+	display: none;
+}
+
 #notifications .last {
 	border-bottom: none;
 }
+
 #notifications a:hover {
 	text-decoration: none !important;
 }
+
 #notifications h3 {
 	display: inline;
 	font-weight: normal;
 }
+
 #notifications .date {
 	font-size: small;
 	color: #0088CC;
-	
 	display: block;
 	float: right;
 }
+
 #notifications .preview {
 	font-size: small;
 	color: #888;
 	margin-bottom: 0;
 }
+
 #notifications .btn-toolbar {
 	margin: 0;
 	margin-top: 7px;
 }
+
 #notifications .btn-group {
 	margin-left: 0;
 }
+
 #notifications .modal-body {
 	height: 60px;
 	text-align: center;
@@ -215,6 +285,7 @@
 	font-size: large;
 	color: #888;
 }
+
 #notifications .modal-body.hidden {
 	visibility: visible;
 	display: none;
@@ -224,22 +295,18 @@
 	display: none;
 }
 
-
 /** Tables hand-sortables **/
 .table-hand-sortable.inAction {
 	margin-bottom: 0;
 	border-bottom-right-radius: 0;
-	border-bottom-left-radius:  0;
+	border-bottom-left-radius: 0;
 }
-.table-hand-sortable.inAction thead:first-child tr:first-child th:last-child,
-.table-hand-sortable.inAction tbody:first-child tr:first-child td:last-child,
-.table-hand-sortable.inAction thead:last-child tr:last-child th:first-child,
-.table-hand-sortable.inAction tbody:last-child tr:last-child td:first-child,
-.table-hand-sortable.inAction thead:last-child tr:last-child th:last-child,
-.table-hand-sortable.inAction tbody:last-child tr:last-child td:last-child {
-  	border-bottom-right-radius: 0;
-	border-bottom-left-radius:  0;
+
+.table-hand-sortable.inAction thead:first-child tr:first-child th:last-child,.table-hand-sortable.inAction tbody:first-child tr:first-child td:last-child,.table-hand-sortable.inAction thead:last-child tr:last-child th:first-child,.table-hand-sortable.inAction tbody:last-child tr:last-child td:first-child,.table-hand-sortable.inAction thead:last-child tr:last-child th:last-child,.table-hand-sortable.inAction tbody:last-child tr:last-child td:last-child {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
+
 .table-hand-sortable-move {
 	width: 16px;
 	cursor: move;
@@ -249,14 +316,13 @@
 	margin-top: 0;
 	border-top: none;
 	border-bottom-right-radius: 4px;
-	border-bottom-left-radius:  4px;
+	border-bottom-left-radius: 4px;
 }
-
-
 
 label {
 	cursor: pointer;
 }
 
-
-.clear { clear: both; }
+.clear {
+	clear: both;
+}
