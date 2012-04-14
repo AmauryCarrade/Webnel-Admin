@@ -237,9 +237,9 @@
 							</li>
 
 							<li class="nav-header" id="background-tasks-header">En arrière plan</li>
-							<li id="background-tasks-link">
+							<li id="background-tasks-link" class="show-background-tasks">
 								<a href="#">
-									<span class="label pull-right background-tasks-count">1</span>
+									<span class="label pull-right background-tasks-count">2</span>
 									<span class="icon-refresh"></span> Tâches en cours 
 								</a>
 							</li>
@@ -591,6 +591,55 @@
 		</aside>
 
 		<div id="backgroundTasksSystemCount">1</div>
+		<div id="backgroundTasks" class="modal fade">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal" title="Fermer (vous pouvez aussi utiliser la touche Échap)">×</a>
+				<h3>Tâches en cours <span id="backgroundTasksUnreadCountBracketsInTitleOfPopup">(<span class="backgroundTasks-unread-count">2</span>)</span></h3>
+			</div>
+
+			<div class="modal-header">
+				<h4>
+					<a href="#">
+						Téléchargement des mises à jour
+					</a>
+				</h4>
+				<p class="preview">
+					Téléchargement de « Pannel de gestion des utilisateurs »...
+				</p>
+				<div class="btn-group pull-right">
+					<a href="#" class="btn btn-mini">60% effectués</a>
+				</div>
+				<div class="progress progress-striped active">
+					<div class="bar progress-background-tasks" style="width: 60%;"></div>
+				</div>
+			</div>
+			<div class="modal-header last">
+				<h4>
+					<a href="#">
+						Maintenance
+					</a>
+				</h4>
+				<p class="preview">
+					Mise à jour de l'index de recherche...
+				</p>
+				<div class="btn-group pull-right">
+					<a href="#" class="btn btn-mini">35% effectués</a>
+				</div>
+				<div class="progress progress-striped active">
+					<div class="bar" style="width: 35%;"></div>
+				</div>
+			</div>
+
+			<div class="modal-body hidden" id="backgroundTasksNothing">
+				Aucune tâche en cours d'exécution
+			</div>
+			<div class="modal-footer">
+				<div class="pull-left">
+					<a href="#" class="btn">Tâches en liste d'attente</a>
+				</div>
+				<a href="#" class="btn show-background-tasks">Fermer</a>
+			</div>
+		</div>
 
 		<!-- Javascript
 		================================================== -->

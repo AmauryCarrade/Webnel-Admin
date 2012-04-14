@@ -852,6 +852,25 @@ $(document).ready(function() {
 	});
 
 
+
+	/** Background tasks **/
+	var $showBackgroundTasks         = $('.show-background-tasks'),
+		$backgroundTasks             = $('#backgroundTasks'),
+		$menuLeftItemBackgroundTasks = $('#background-tasks-link');
+
+	// Modal
+	$backgroundTasks.modal({
+		show: false
+	});
+	$showBackgroundTasks.click(function() {
+		$menuLeftItemBackgroundTasks.addClass('active');
+		$backgroundTasks.modal('toggle');
+	});
+	$backgroundTasks.on('hide', function() {
+		$menuLeftItemBackgroundTasks.removeClass('active');
+	});
+
+
 	/** Favorites **/
 	var $favoritesEdit           = $('.favorite-edit'),
 	    $favoritesNew            = $('#favorite-new'),

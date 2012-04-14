@@ -1,5 +1,5 @@
 /**
- * This jQuery plugin resize a textarea to adapt it automaticly to the content.
+ * This jQuery plugin resize a textarea to adapt it automatically to the content.
  * @author Amaury Carrade
  * 
  * @example $('textarea').autoResize({

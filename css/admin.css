@@ -261,9 +261,48 @@
 	display: none;
 }
 
-#backgroundTasksSystemCount {
+
+/** Background tasks **/
+#backgroundTasks, #backgroundTasksSystemCount {
 	display: none;
 }
+
+#backgroundTasks .last {
+	border-bottom: none;
+}
+
+#backgroundTasks a:hover {
+	text-decoration: none !important;
+}
+
+#backgroundTasks h3 {
+	display: inline;
+	font-weight: normal;
+}
+
+#backgroundTasks .preview {
+	font-size: small;
+	color: #888;
+}
+#backgroundTasks .progress {
+	margin-bottom: 0;
+}
+#backgroundTasks .btn-group {
+	margin-left: 10px;
+}
+#backgroundTasks .modal-body {
+	height: 60px;
+	text-align: center;
+	padding-top: 53px;
+	font-size: large;
+	color: #888;
+}
+
+#backgroundTasks .modal-body.hidden {
+	visibility: visible;
+	display: none;
+}
+
 
 /** Tables hand-sortables **/
 .table-hand-sortable.inAction {
