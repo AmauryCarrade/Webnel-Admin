@@ -590,14 +590,14 @@
 			</div>
 		</aside>
 
-		<div id="backgroundTasksSystemCount">1</div>
+		<div id="backgroundTasksSystemCount">2</div>
 		<div id="backgroundTasks" class="modal fade">
 			<div class="modal-header">
 				<a class="close" data-dismiss="modal" title="Fermer (vous pouvez aussi utiliser la touche Échap)">×</a>
-				<h3>Tâches en cours <span id="backgroundTasksUnreadCountBracketsInTitleOfPopup">(<span class="backgroundTasks-unread-count">2</span>)</span></h3>
+				<h3>Tâches en cours <span id="backgroundTasksCountBracketsInTitleOfPopup">(<span class="background-tasks-count">2</span>)</span></h3>
 			</div>
 
-			<div class="modal-header">
+			<div class="modal-header backgroundTask" data-id="1">
 				<h4>
 					<a href="#">
 						Téléchargement des mises à jour
@@ -606,14 +606,14 @@
 				<p class="preview">
 					Téléchargement de « Pannel de gestion des utilisateurs »...
 				</p>
-				<div class="btn-group pull-right">
-					<a href="#" class="btn btn-mini">60% effectués</a>
+				<div class="pull-right">
+					<span class="progress-text-background-tasks">60</span>% effectués
 				</div>
-				<div class="progress progress-striped active">
+				<div class="progress">
 					<div class="bar progress-background-tasks" style="width: 60%;"></div>
 				</div>
 			</div>
-			<div class="modal-header last">
+			<div class="modal-header backgroundTask last" data-id="2">
 				<h4>
 					<a href="#">
 						Maintenance
@@ -622,11 +622,11 @@
 				<p class="preview">
 					Mise à jour de l'index de recherche...
 				</p>
-				<div class="btn-group pull-right">
-					<a href="#" class="btn btn-mini">35% effectués</a>
+				<div class="pull-right">
+					<span class="progress-text-background-tasks">35</span>% effectués
 				</div>
-				<div class="progress progress-striped active">
-					<div class="bar" style="width: 35%;"></div>
+				<div class="progress">
+					<div class="bar progress-background-tasks" style="width: 35%;"></div>
 				</div>
 			</div>
 
@@ -635,7 +635,7 @@
 			</div>
 			<div class="modal-footer">
 				<div class="pull-left">
-					<a href="#" class="btn">Tâches en liste d'attente</a>
+					154 tâches en liste d'attente
 				</div>
 				<a href="#" class="btn show-background-tasks">Fermer</a>
 			</div>

@@ -59,6 +59,7 @@ $(document).ready(function() {
 		$notificationsCountPopup    = $('#notificationsUnreadCountBracketsInTitleOfPopup'),
 		$backgroundTasksCount       = $('.background-tasks-count'),
 		$backgroundTasksSystemCount = $('#backgroundTasksSystemCount'), // Reference
+		$backgroundTasksCountPopup  = $('#backgroundTasksCountBracketsInTitleOfPopup'),
 		$backgroundTasksBlock       = $('#background-tasks-link, #background-tasks-header'),
 		$allCount                   = $('.all-unread-count'),
 		
@@ -70,6 +71,7 @@ $(document).ready(function() {
 	// First, we update all count for coherences reasons.
 	$messagesCount.text(messagesCount);
 	$notificationsCount.text(notificationsCount);
+	$backgroundTasksCount.text(backgroundTasksCount);
 	$allCount.text(allCount);
 
 
@@ -140,12 +142,15 @@ $(document).ready(function() {
 		
 		$backgroundTasksSystemCount.text(backgroundTasksCount);
 		$backgroundTasksCount.text(backgroundTasksCount);
-		
+
 		if(backgroundTasksCount <= 0) {
+			backgroundTasksCount = 0;
 			$backgroundTasksBlock.hide();
+			$backgroundTasksCountPopup.hide();
 		}
 		else {
 			$backgroundTasksBlock.show();
+			$backgroundTasksCountPopup.show();
 		}
 	};
 	
@@ -856,6 +861,8 @@ $(document).ready(function() {
 	/** Background tasks **/
 	var $showBackgroundTasks         = $('.show-background-tasks'),
 		$backgroundTasks             = $('#backgroundTasks'),
+		$backgroundTasksItems        = $backgroundTasks.find('.backgroundTask'),
+		$backgroundTasksNothing      = $('#backgroundTasksNothing'),
 		$menuLeftItemBackgroundTasks = $('#background-tasks-link');
 
 	// Modal
@@ -870,6 +877,99 @@ $(document).ready(function() {
 		$menuLeftItemBackgroundTasks.removeClass('active');
 	});
 
+	// Utilities
+	/**
+	 * Updates a background task.
+	 * @param update object The data to update. Format:
+	 * {
+	 *     id: 'The id of the Bg task (int)',
+	 *     title: 'The title of the task',
+	 *     now: 'The description what we do actually',
+	 *     percent: 'The progress in percents (int; between 0 & 100) (id 100, the task is removed)'
+	 * }
+	 */
+	var updateBackgroundTask = function(update) {
+		if(update.id === undefined) return;
+
+		var $updatedTask = $backgroundTasksItems.filter('[data-id="' + update. id + '"]');
+		console.log($updatedTask);
+		console.log(update.id)
+		if(update.title !== undefined) {
+			$updatedTask.find('h4 a').text(update.title);
+		}
+		if(update.now !== undefined) {
+			$updatedTask.find('.preview').text(update.now);
+		}
+		if(update.percent !== undefined) {
+			$updatedTask.find('.progress-background-tasks').css('width', update.percent + '%');
+			$updatedTask.find('.progress-text-background-tasks').text(update.percent);
+			if(update.percent == 100) {
+				changeBackgroundTasksCount(-1);
+				setTimeout(function() {
+					$updatedTask.slideUp('normal', function() {
+						$updatedTask.remove();
+
+						// Since the DOM has changed, we need to update this.
+						$backgroundTasksItems = $backgroundTasks.find('.backgroundTask');
+					});
+
+					if($backgroundTasksItems.length < 2) {
+						$backgroundTasksNothing.slideDown();
+					}
+				}, 2000);
+			}
+		}
+	};
+
+
+
+	// Simulator for tests.
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 1, 
+			now: "Téléchargement de « Messages »...",
+			percent: 70
+		});
+	}, 2000);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 1, 
+			now: "Téléchargement de « Articles »...",
+			percent: 80
+		});
+	}, 2500);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 1, 
+			now: "Les mises à jour sont prêtes à être installées.",
+			percent: 100
+		});
+	}, 4500);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 2, 
+			percent: 40
+		});
+	}, 2000);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 2, 
+			percent: 60
+		});
+	}, 3000);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 2, 
+			percent: 80
+		});
+	}, 4000);
+	setTimeout(function() {
+		updateBackgroundTask({
+			id: 2, 
+			now: 'Reconstruction de l\'index terminée.',
+			percent: 100
+		});
+	}, 6000);
 
 	/** Favorites **/
 	var $favoritesEdit           = $('.favorite-edit'),
