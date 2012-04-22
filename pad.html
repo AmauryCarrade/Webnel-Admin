@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Administration de Webnel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/admin.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="index.html">Webnel</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="dropdown active">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Accueil <span class="caret"></span></a>
+																<ul class="dropdown-menu">
+									<li class="active"><a href="index.html">Tableau de bord</a></li>
+									
+									<li class="nav-header">Accès rapide</li>
+									<li>
+										<a href="#">
+											Favori Un 
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Favori Deux 
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Favori Trois 
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Benzoate 
+										</a>
+									</li>
+									<li id="favorite-new">
+										<a href="#">
+											Gérer les favoris...
+										</a>
+									</li>
+									
+									
+									<li class="nav-header">Liens relatifs à cette page</li>
+									<li><a href="new.html">Nouvel élément</a></li>
+									<li><a href="#">Modifier la sélection</a></li>
+									<li><a href="#">Supprimer la sélection</a></li>
+
+									<li class="nav-header" id="background-tasks-header">En arrière plan</li>
+									<li id="background-tasks-link" class="show-background-tasks">
+										<a href="#">
+											<span class="label pull-right background-tasks-count">2</span>
+											Tâches en cours 
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Site <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Aspect et mise en page</li>
+									<li><a href="#">Aspect du site</a></li>
+									<li><a href="#">Mise en page</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Utilisateurs</li>
+									<li><a href="#">Liste des utilisateurs inscrits</a></li>
+									<li><a href="#">Créer un utilisateurs</a></li>
+									<li><a href="#">Groupes d'utilisateurs</a></li>
+									<li><a href="#">Droits d'accès</a></li>
+									<li><a href="#">Banissements d'IPs</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Mise à jour logicielle</li>
+									<li><a href="#">Voir les versions des composants installés</a></li>
+									<li><a href="#"><span class="label pull-right">1</span> Mises à jour disponibles</a></li>
+									<li><a href="#">Tout mettre à jour</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Avancé</li>
+									<li><a href="#">Couper temporairement le site</a></li>
+									<li><a href="#">Gérer les sauvegardes</a></li>
+									<li><a href="#">Verrous des formulaires</a></li>
+									<li><a href="#">Gestion du cache</a></li>
+									<li><a href="#">Informations et journaux système</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contenus <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Médias</li>
+									<li><a href="#">Consulter les médias téléversés</a></li>
+									<li><a href="#">Téléverser un média</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Compléments <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Applications</li>
+									<li><a href="#">Application 1</a></li>
+									<li><a href="#">Application 2</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Widgets</li>
+									<li><a href="#">Widget 1</a></li>
+									<li><a href="#">Widget 2</a></li>
+									<li><a href="#">Widget 3</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Extensions</li>
+									<li><a href="#">Extension 1</a></li>
+									<li><a href="#">Extension 2</a></li>
+									<li class="divider"></li>
+									<li class="nav-header">Magasin d'applications</li>
+									<li><a href="store.html">Accéder au Webnel Store</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paramètres <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Paramètres</li>
+									<li><a href="settings.html">Paramètres généraux</a></li>
+									<li><a href="#">Médias</a></li>
+									<li><a href="#">Utilisateurs</a></li>
+									<li><a href="#">Système</a></li>
+									<li><a href="#">Serveur</a></li>
+									<li><a href="#">Développeurs</a></li>
+									<li><a href="#">Paramètres de l'administration</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Aide <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Aide</li>
+									<li><a href="#">Aide contextuelle</a></li>
+									<li><a href="#">Aide complète en ligne</a></li>
+									<li class="divider"></li>
+									<li><a href="#">À propos de Webnel</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav pull-right">
+							<form class="navbar-search pull-left" action="">
+								<input type="text" class="search-query span2" placeholder="Rechercher">
+							</form>
+							<li class="divider-vertical"></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <span class="badge badge-info all-unread-count">5</span> <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Mon compte</a></li>
+									<li><a href="#" class="show-messages"><span class="label pull-right messages-unread-count">3</span> Messages</a></li>
+									<li><a href="#" class="show-notifications"><span class="label pull-right notifications-unread-count">2</span> Notifications</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Langue : Français</a></li>
+									<li><a href="#">Édition en Allemand</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Déconnexion</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.nav-collapse -->
+				</div>
+			</div><!-- /navbar-inner -->
+		</div><!-- /navbar -->
+
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="alert alert-block alert-error fade in">
+					<a class="close" data-dismiss="alert" href="#">&times;</a>
+					<h4 class="alert-heading">Security issue detected</h4>
+					<p>A visitor has attempted a brut-force attack against your website.<br />
+					You need to protect your website now by enable an option in settings, for security reasons.</p>
+					<p>
+						<a class="btn btn-danger" href="#">Protect your website (hightly recommended)</a> 
+						<a class="btn alert-close" href="#">No, thanks.</a>
+					</p>
+				</div>
+				<div class="page-header">
+					<h1>Titre de la page <small>Sous-titre</small></h1>
+					<div class="pull-right">
+						<span class="icon-lock tooltip-left" title="La connexion au serveur est chiffrée"></span>
+					</div>
+				</div>
+				<table class="table table-striped table-bordered table-condensed table-hand-sortable inAction">
+					<thead>
+						<tr>
+							<th class="table-hand-sortable-move"></th>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Username</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="table-hand-sortable-move"><span class="icon-move"></span></td>
+							<td>1</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						<tr>
+							<td class="table-hand-sortable-move">
+								<span class="icon-move"></span>
+							</td>
+							<td>2</td>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<td class="table-hand-sortable-move"><span class="icon-move"></span></td>
+							<td>3</td>
+							<td>Larry</td>
+							<td>the Bird</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-actions save-table-hand-sortable">
+					<div class="pull-right">
+						<input type="submit" class="btn btn-primary save-save-table-hand-sortable" value="Enregistrer" />
+						<a class="btn cancel-save-table-hand-sortable">Annuler</a>
+					</div>
+					<p>
+						<strong>Attention.</strong> Les changements effectués n'ont pas encore été sauvegardés.
+					</p>
+				</div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis ultricies purus. Vivamus dui risus, convallis nec elementum at, pellentesque sed mauris. In ornare odio at mauris hendrerit id ultrices est ullamcorper. Sed molestie, lacus eget imperdiet accumsan, erat lorem tempus erat, fringilla luctus diam velit placerat dui. Etiam enim nisl, placerat sit amet egestas vel, dignissim et tortor. Vestibulum pellentesque, eros et egestas porttitor, ante velit malesuada turpis, quis suscipit mi sapien id magna. Aliquam ullamcorper, urna vitae facilisis sodales, risus elit sodales dolor, nec consequat lectus lorem ut nulla. Integer quis laoreet erat.</p>
+				<p>Ut adipiscing vulputate varius. Nulla adipiscing gravida aliquam. Sed blandit consectetur tortor, vel accumsan tellus vulputate non. Nam bibendum vulputate mauris, vel porta nisl feugiat vitae. Vestibulum eros enim, mattis id dignissim ac, hendrerit rutrum dui. Sed consequat diam vitae leo feugiat elementum. Aenean aliquet pharetra tempus. Morbi dictum dignissim mauris, eget dignissim leo pulvinar ut. Donec in mauris dui, vitae pharetra turpis. Donec rhoncus arcu quam, eget commodo magna. Donec eleifend pharetra justo, nec fermentum lectus iaculis sed.</p>
+				<p>Mauris odio odio, elementum at sodales at, consequat ac dui. Aliquam ultricies iaculis dictum. Ut gravida vulputate faucibus. Nullam in molestie massa. Etiam rutrum, velit in fermentum facilisis, nibh mi placerat quam, at aliquet enim eros vel quam. Cras et nibh et leo sollicitudin pulvinar. Suspendisse at tortor elit. Etiam nulla urna, ultricies non tempus ac, posuere ac nibh. Praesent non laoreet nulla. Praesent ac mauris quis arcu vulputate ultricies. Curabitur porta, lectus id blandit euismod, augue metus mattis tellus, sit amet rutrum urna risus vel turpis. Sed volutpat placerat felis, ornare sagittis ipsum hendrerit ac.</p>
+				<p>Integer imperdiet hendrerit odio eget bibendum. Sed varius ligula et velit egestas suscipit. Aliquam erat volutpat. Quisque ac augue turpis, eget lobortis dolor. Maecenas dignissim ligula eu orci euismod commodo. Vestibulum interdum sapien quis ligula vulputate facilisis. Cras luctus libero vel mauris vestibulum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis nisl a dui dignissim imperdiet.</p>
+				<p>Sed eget nunc non lectus blandit euismod sit amet id sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis id magna nunc. Nam purus erat, lobortis sit amet aliquam sed, dignissim vitae nunc. Quisque non neque dui. Nam molestie velit sed lectus dictum congue. Nullam blandit felis a nunc rutrum tempor. Curabitur faucibus ultrices orci, placerat euismod sapien viverra in. Morbi at leo urna, a euismod lectus. Aliquam convallis elit nulla.</p>
+				<p>Duis blandit venenatis ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque et quam vitae magna ornare placerat. Curabitur dictum libero et urna rhoncus euismod. Pellentesque purus velit, blandit eget vehicula fermentum, mattis vel odio. Proin sapien libero, lacinia at mattis in, malesuada at risus. Fusce ipsum lacus, scelerisque nec blandit sit amet, congue sit amet nisl. Vestibulum nec ante felis, quis mattis mi.</p>
+				<p>Mauris tellus tortor, bibendum vitae venenatis in, feugiat ac ante. Nullam egestas sagittis quam, ullamcorper posuere magna egestas eu. Aliquam vel mollis augue. In vitae malesuada nisi. Maecenas sed enim at sem iaculis laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper, diam vel ultricies porta, nunc dolor posuere ligula, sit amet fermentum est enim a odio. Sed vel dolor massa, in malesuada odio. Fusce quam urna, sagittis et pellentesque quis, rhoncus vel quam. Vestibulum vel ultricies ipsum.</p>
+				<p>Donec venenatis, turpis eu laoreet elementum, tellus nisi ultrices est, nec mollis tortor sem at orci. Maecenas eu posuere ligula. Fusce sollicitudin orci a dui consequat tincidunt. Integer sodales pulvinar odio, quis tristique nisl vestibulum vel. Pellentesque nisl massa, sagittis at semper in, accumsan in ligula. Morbi at mauris risus, non congue arcu. Proin ornare quam a quam congue non ultrices ligula suscipit. Nullam neque arcu, elementum sit amet pulvinar et, consequat ut est. Aliquam malesuada ultrices nibh nec elementum. Donec at nisl vitae magna viverra imperdiet id vel elit.</p>
+				<p>Aliquam gravida, dolor vel faucibus malesuada, nibh tellus lobortis eros, et luctus tortor quam eu massa. Aliquam at malesuada tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum sit amet eros ut enim lobortis eleifend non eu arcu. Vivamus condimentum nibh ac sapien auctor iaculis. Duis adipiscing congue enim, at condimentum purus dapibus quis. Nam tincidunt justo et dui pulvinar non consectetur lacus dictum. Quisque urna nulla, tincidunt in sollicitudin a, auctor id turpis. Suspendisse congue, turpis sit amet pellentesque vehicula, erat purus malesuada erat, sed rhoncus massa neque egestas purus. Fusce felis nulla, semper ac tincidunt at, rutrum at neque.</p>
+				<p>Suspendisse potenti. Sed feugiat metus ut dolor hendrerit tincidunt. Proin non felis diam, nec ultrices odio. Maecenas est risus, adipiscing vel condimentum ut, fermentum id lorem. Nunc aliquet euismod dolor vel pharetra. Nam lacinia magna ut massa porttitor consequat. Nam sit amet nibh id leo placerat pharetra.</p>
+				<p>Aliquam rutrum sodales malesuada. Phasellus id semper risus. Vivamus accumsan condimentum dictum. Sed a mi et risus tempus dapibus. Donec pellentesque vestibulum enim, vitae elementum sem facilisis sed. Suspendisse nec urna magna, nec ullamcorper nisl. Curabitur nec justo non mi dictum blandit id non turpis. Cras imperdiet eros sed urna pellentesque ultrices. Vivamus mollis lorem eu odio hendrerit malesuada. Maecenas mollis interdum risus, ut luctus velit varius sed. Vivamus vel luctus nibh. Morbi vel arcu sem. Nunc fringilla adipiscing massa, at adipiscing enim suscipit vitae. Vestibulum vitae libero metus, vel aliquet augue. Aenean ac eros neque. Cras ultrices ipsum sit amet augue fermentum pulvinar.</p>
+				<p>Praesent vitae eleifend felis. Sed rhoncus quam non neque aliquet sagittis. In adipiscing erat non velit auctor id consequat leo dictum. Nam eleifend, mi ac scelerisque dapibus, eros lorem congue metus, id bibendum erat sem feugiat urna. Duis pulvinar, arcu ut dapibus varius, tortor arcu convallis dolor, eu vehicula urna leo ac metus. Vestibulum odio lectus, mattis eu iaculis non, porta ut lacus. Nullam vitae velit quis sem euismod placerat. Nunc sed diam eu tellus laoreet pulvinar. In hac habitasse platea dictumst. Vestibulum cursus arcu at nisl mattis posuere. Vestibulum congue blandit eros, eu rhoncus arcu dapibus vel. Duis eu nunc eget est adipiscing aliquam. Quisque enim erat, elementum congue ultrices vitae, sagittis nec quam. Nam dolor turpis, mattis quis suscipit sit amet, congue at ante.</p>
+			</div>
+		</div> <!-- /container-fluid -->
+		
+		<!-- Messages -->
+		<aside class="modal fade" id="messages">
+			<div id="messagesUnreadSystemCount">3</div>
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal" title="Fermer (vous pouvez aussi utiliser la touche Échap)">×</a>
+				<h3>Messages reçus <span id="messagesUnreadCountBracketsInTitleOfPopup">(<span class="messages-unread-count">3</span>)</span> <small></small></h3>
+			</div>
+			<div class="modal-header" id="messageObject">
+				<span class="icon-refresh pull-right tooltip-left" id="messagesUpdateThread" title="Récupérer les derniers messages"></span>
+				<span class="icon-void pull-right tooltip-left" id="messagesUpdateThreadLoader" title="Récupération en cours...">
+					<img src="img/loader_small.gif" alt="Récupération en cours..." />
+				</span>
+				<span class="object"></span>
+			</div>
+			
+			<div class="modal-body" id="messagesList" style="padding: 8px 0;">
+				<!--<p style="text-align: center">Aucun message reçu... pour le moment !</p>-->
+				<ul class="nav nav-list">
+					
+					<li class="unread"><a href="#" data-id="12" data-type="global"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du premier message</h4>
+						<p class="name">Avec tout le monde</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+					<li class="unread"><a href="#" data-id="13" data-type="private"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du seul message</h4>
+						<p class="name">Avec Amnet</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+					<li class="unread"><a href="#" data-id="14" data-type="group"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close unread" title="Il y a des nouveaux messages"></span> Sujet du premier message</h4>
+						<p class="name">Avec Lui, Elle et Amnet</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+					<li><a href="#" data-id="15" data-type="global"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du second message</h4>
+						<p class="name">Avec tout le monde</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+					<li><a href="#" data-id="16" data-type="group"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du deuxième message</h4>
+						<p class="name">Avec Lui, Elle et Amnet</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+					<li class="last"><a href="#" data-id="17" data-type="group"><label>
+						<div class="messagesList-checkbox">
+							<input type="checkbox" name="messages-checkbox[]" class="messages-checkbox" />
+						</div>
+						<time class="date">une heure</time>
+						<h4><span class="icon-eye-close read" title="Il y a des nouveaux messages"></span> Sujet du troisième message</h4>
+						<p class="name">Avec Lui, Elle et Amnet</p>
+						<p class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed neque ipsum. Sed convallis...</p>
+					</label></a></li>
+				</ul>
+			</div>
+			
+			<div class="modal-body" id="messagesThread"></div>
+
+			<div class="modal-body hidden" id="messagesNothing">Aucun message</div>
+
+			<div class="modal-body" id="messagesNew">
+				<p>
+					Entrez les destinataires de votre message ci-dessous. <br />
+					Pour envoyer un message à tous (message global), n'indiquez aucun destinataire.
+				</p>
+				<div class="control-group messages-new-inputs-to">
+					<input name="to[]" class="messages-new-input-to" placeholder="Précisez un destinataire..." data-id="1" /><br />
+		        </div>
+			</div>
+			
+			<div class="modal-footer" id="messagesForm">
+				<textarea placeholder="Message" id="MessagesFormFieldText"></textarea>
+				<input type="submit" value="Envoyer" id="MessagesFormSend" class="btn btn-primary" />
+			</div>
+			
+			<div class="modal-body" id="messagesSourceThreadLoading">Chargement...</div>
+			<div class="modal-body messages-thread-source" id="messageSourceThread12">
+				<div class="bulletRight" data-id="1">
+					<div class="contentBullet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a 5 minutes</time>
+				</div>
+				<div class="bulletLeft" data-id="2">
+					<div class="contentBullet">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+					<div class="infosBullet">Par Lorem — <time>Il y a une minute</time></div>
+				</div>
+				<div class="bulletRight" data-id="3">
+					<div class="contentBullet">Duis aute irure dolore in reprehenderit in voluptarte velit esse cillum dolore eu fugiat nulla pariatur.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+				<div class="bulletRight" data-id="4">
+					<div class="contentBullet">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+				<div class="bulletRight" data-id="5">
+					<div class="contentBullet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a 5 minutes</time>
+				</div>
+				<div class="bulletLeft" data-id="6">
+					<div class="contentBullet">
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					</div>
+					<div class="infosBullet">Par Lorem — <time>Il y a une minute</time></div>
+				</div>
+				<div class="bulletRight" data-id="7">
+					<div class="contentBullet">
+						Nobody here? :(
+					</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+				<div class="bulletRight" data-id="8">
+					<div class="contentBullet">
+						I'm crazy... It's a development version, so I'm alone.<br />
+						I speak with me and only me.<br />
+						And if I receive an answer, I will be really surprising.
+					</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+				<div class="bulletRight" data-id="9">
+					<div class="contentBullet">
+						So hello, me! :)
+					</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+			</div>
+			
+			<div class="modal-body messages-thread-source" id="messageSourceThread13">
+				<div class="bulletRight" data-id="1">
+					<div class="contentBullet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a 6 minutes</time>
+				</div>
+			</div>
+			
+			<div class="modal-body messages-thread-source" id="messageSourceThread14">
+				<div class="bulletRight" data-id="1">
+					<div class="contentBullet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a 7 minutes</time>
+				</div>
+				<div class="bulletRight" data-id="8">
+					<div class="contentBullet">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					<div class="clear"></div>
+					<time class="infosBullet">Il y a moins d'une minute</time>
+				</div>
+			</div>
+			
+			<div class="modal-footer">
+				<div class="pull-left">
+					<a href="#" class="btn" id="messagesBtnModify">Modifier</a>
+					<div class="btn-toolbar" id="messagesBtnToolbar">
+						<div class="btn-group">
+							<a href="#" class="btn btn-danger" id="messagesBtnDelete">Supprimer</a>
+						</div>
+						<div class="btn-group">
+							<a href="#" class="btn" id="messagesBtnRead">Lu</a>
+							<a href="#" class="btn" id="messagesBtnUnread">Non lu</a>
+							<a href="#" class="btn" id="messagesBtnInverse">Inverser</a>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="btn messages-back-to-list" id="messagesBtnBackToList">Retour</a>
+				<a href="#" class="btn show-messages" id="messagesBtnClose">Fermer</a>
+				<a href="#" class="btn btn-primary" id="messagesBtnNew">Nouveau message</a>
+				<a href="#" class="btn" id="messagesBtnCancelModification">Annuler</a>
+
+			</div>
+		</aside>
+
+
+		<aside id="notifications" class="modal fade">
+			<div id="notificationsUnreadSystemCount">1</div>
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal" title="Fermer (vous pouvez aussi utiliser la touche Échap)">×</a>
+				<h3>Notifications <span id="notificationsUnreadCountBracketsInTitleOfPopup">(<span class="notifications-unread-count">2</span>)</span></h3>
+			</div>
+			<div class="modal-header unread" data-id="8">
+				<time class="date">une heure</time>
+				<h4>
+					<a href="#">
+						<span class="icon-eye-close unread" title="Notification non lue"></span> 5 mises à jour disponibles
+					</a>
+				</h4>
+				<p class="preview">
+					5 mises à jour, dont une mise à jour importante, sont disponibles et doivent être appliquées dans les plus brefs délais.
+				</p>
+				<div class="btn-toolbar">
+					<div class="btn-group pull-right">
+						<a href="#" class="btn btn-mini first notification-mark-as-read button-notification-mark-as-read">Marquer comme lu</a>
+						<a href="#" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						    <li><a href="#" class="notification-ignore">Ignorer</a></li>
+						</ul>
+					</div>
+					<div class="btn-group">
+						<a href="#" class="btn btn-primary btn-mini notification-mark-as-read notification-action">
+							Voir les mises à jour
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="modal-header last" data-id="9">
+				<time class="date">une heure</time>
+				<h4>
+					<a href="#">
+						<span class="icon-eye-close read" title="Notification non lue"></span> Un commentaire en attente de validation
+					</a>
+				</h4>
+				<p class="preview">
+					Un commentaire a été posté et attend votre validation.
+				</p>
+				<div class="btn-toolbar">
+					<div class="btn-group pull-right">
+						<a href="#" class="btn btn-mini first notification-mark-as-read button-notification-mark-as-read">Marquer comme non lu</a>
+						<a href="#" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						    <li><a href="#" class="notification-ignore">Ignorer</a></li>
+						</ul>
+					</div>
+					<div class="btn-group">
+						<a href="#" class="btn btn-primary btn-mini notification-mark-as-read notification-action">
+							Voir le commentaire
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-body hidden" id="notificationsNothing">
+				Aucune notification
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn show-notifications">Fermer</a>
+			</div>
+		</aside>
+
+		<div id="backgroundTasksSystemCount">2</div>
+		<div id="backgroundTasks" class="modal fade">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal" title="Fermer (vous pouvez aussi utiliser la touche Échap)">×</a>
+				<h3>Tâches en cours <span id="backgroundTasksCountBracketsInTitleOfPopup">(<span class="background-tasks-count">2</span>)</span></h3>
+			</div>
+
+			<div class="modal-header backgroundTask" data-id="1">
+				<h4>
+					<a href="#">
+						Téléchargement des mises à jour
+					</a>
+				</h4>
+				<p class="preview">
+					Téléchargement de « Pannel de gestion des utilisateurs »...
+				</p>
+				<div class="pull-right">
+					<span class="progress-text-background-tasks">60</span>% effectués
+				</div>
+				<div class="progress">
+					<div class="bar progress-background-tasks" style="width: 60%;"></div>
+				</div>
+			</div>
+			<div class="modal-header backgroundTask last" data-id="2">
+				<h4>
+					<a href="#">
+						Maintenance
+					</a>
+				</h4>
+				<p class="preview">
+					Mise à jour de l'index de recherche...
+				</p>
+				<div class="pull-right">
+					<span class="progress-text-background-tasks">35</span>% effectués
+				</div>
+				<div class="progress">
+					<div class="bar progress-background-tasks" style="width: 35%;"></div>
+				</div>
+			</div>
+
+			<div class="modal-body hidden" id="backgroundTasksNothing">
+				Aucune tâche en cours d'exécution
+			</div>
+			<div class="modal-footer">
+				<div class="pull-left">
+					154 tâches en liste d'attente (<a href="#">tout lancer</a>)
+				</div>
+				<a href="#" class="btn show-background-tasks">Fermer</a>
+			</div>
+		</div>
+
+		<!-- Javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.textareaAutoResize.js"></script>
+		<script src="js/admin.js"></script>
+	</body>
+</html>
